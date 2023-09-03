@@ -472,6 +472,7 @@ int32_t PowerLimiterClass::calcPowerLimit(std::shared_ptr<InverterAbstract> inve
     // We should use Victron solar power only (corrected by efficiency factor)
     if (solarPowerEnabled && !batteryDischargeEnabled) {
         // Case 2 - Limit power to solar power only
+        // add input of MQTT Victron(s) value.
         if (_verboseLogging) {
             MessageOutput.printf("[DPL::loop] Consuming Solar Power Only -> adjustedVictronChargePower: %d W, newPowerLimit: %d W\r\n",
                 adjustedVictronChargePower, newPowerLimit);
